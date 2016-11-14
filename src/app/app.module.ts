@@ -1,21 +1,30 @@
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { HomePage, LoginPage } from '../pages';
+
+import { AngularFireModule, FIREBASE_PROVIDERS } from 'angularfire2';
+
+import { config, myFirebaseAuthConfig } from './app.configuration';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
   imports: [
+    AngularFireModule.initializeApp(config, myFirebaseAuthConfig),
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    LoginPage
   ],
-  providers: []
+  providers: [
+    FIREBASE_PROVIDERS,
+  ]
 })
-export class AppModule {}
+export class AppModule { }

@@ -1,0 +1,56 @@
+<ion-content>
+  <div id="cloud-layer" [@flyInBottomFast]="cloudState">
+    <form #loginForm="ngForm" novalidate (ngSubmit)="onLogin(loginForm)">
+      <ion-row>
+        <ion-col>
+          <span [@fadeIn]="loginState"><b>ENTRAR</b></span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="m-b-25">
+        <ion-col>
+          <img src="./assets/images/appicon.svg" [@flyInBottomSlow]="logoState" />
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button type="button" (click)="onLoginFacebook()" class="facebook-button" [@fadeIn]="loginState" fab><ion-icon name="logo-facebook" item-left></ion-icon> &nbsp; Entrar com o Facebook</button>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <span [@fadeIn]="loginState">ou</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-list [@bounceInBottom]="formState">
+            <ion-item>
+              <ion-label floating color="primary">
+                <ion-icon name="person" item-left></ion-icon>Nome de usuário</ion-label>
+              <ion-input [(ngModel)]="login.username" name="username" type="text" #username="ngModel" spellcheck="false" autocapitalize="off"
+                required>
+              </ion-input>
+            </ion-item>
+            <ion-item>
+              <ion-label floating color="primary">
+                <ion-icon name="lock" item-left></ion-icon>Senha</ion-label>
+              <ion-input [(ngModel)]="login.password" name="password" type="password" #password="ngModel" spellcheck="false" autocapitalize="off"
+                required>
+              </ion-input>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <button ion-button type="submit" class="login-button" block [@fadeIn]="loginState">Entrar</button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="m-t-25">
+        <ion-col [@bounceInBottom]="formState">
+          <a class="c-white" href="#">Esqueceu sua senha?</a>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>
